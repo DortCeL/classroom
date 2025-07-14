@@ -1,0 +1,76 @@
+$bgcolor: #cfd0e3;
+$fontcolor: #1e1e1e;
+$logocolor: rgb(54, 54, 54);
+$searchbg: #fafafa;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.topbar {
+    background: $bgcolor;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 0px 64px;
+
+    .logo {
+        color: $logocolor;
+        font-size: 1.5rem;
+        font-weight: 800;
+    }
+
+    .search {
+        background: $searchbg;
+        border-radius: 20px;
+        padding: 0px 20px;
+
+        // search section width. gotta change for responsive maybe
+        min-width: 600px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+        input {
+            padding: 12px 15px;
+            outline: none;
+            border: none;
+            width: 100%;
+            color: $fontcolor;
+        }
+
+        .search-icon {
+            cursor: pointer;
+        }
+    }
+
+    .logout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 20px;
+
+        &__label {
+            font-weight: 300;
+        }
+
+        &__name {
+            font-weight: bold;
+        }
+
+        button {
+            background: gray;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+        }
+    }
+}

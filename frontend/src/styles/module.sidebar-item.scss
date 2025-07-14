@@ -1,0 +1,110 @@
+$activecolor: #d8d4e4;
+$inactivecolor: #f3f1f7;
+$hovercolor: #e8e4f4;
+$textcolor: #1e1e1e;
+$bordercolor: #b9b9b9;
+
+.sidebar__sub-items {
+    margin-left: 1.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sidebar-item.sub-item {
+    background: none;
+    box-shadow: none;
+    border-radius: 10px;
+    padding: 0.5rem 1.25rem 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: $textcolor;
+    border: none;
+    font-weight: 400;
+    transition: background 0.2s, font-weight 0.2s;
+    text-decoration: none;
+}
+
+.sidebar-item.sub-item:hover {
+    background: $hovercolor;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.sidebar-item.sub-item.active {
+    font-weight: 700;
+    background: $activecolor;
+    color: $textcolor;
+    text-decoration: none;
+    position: relative;
+}
+
+.sidebar-item {
+    width: 100%;
+    border-radius: 20px;
+    padding: 1rem 1.25rem;
+    background-color: $inactivecolor;
+    color: $textcolor;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+
+    // Hover effect
+    &:hover {
+        background-color: $hovercolor;
+        transform: translateY(-1px);
+
+        border-color: $bordercolor;
+        text-decoration: underline;
+    }
+
+    // Active state
+    &.active {
+        background-color: $activecolor;
+        border-color: $bordercolor;
+        box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+        transform: scale(0.98);
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 0 2px 2px 0;
+        }
+    }
+
+    // Focus state for accessibility
+    &:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    // Pressed/clicked effect
+    &:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+
+    // Disabled state
+    &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+
+        &:hover {
+            transform: none;
+            background-color: $inactivecolor;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+    }
+}
